@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: LivingFire1/fireclan-website
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+site_url: https://fireclanglobal.netlify.app
+
+collections:
+  - name: "gallery"
+    label: "Gallery"
+    folder: "gallery"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Caption", name: "title", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Category", name: "category", widget: "select", options: ["Feast of Fire", "Prophesy Meeting", "Church Gathering", "Worship Moment"] }
+
+  - name: "leadership"
+    label: "Leadership"
+    folder: "leaders"
+    create: true
+    slug: "{{name}}"
+    fields:
+      - { label: "Full Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Order", name: "order", widget: "number" }
+
+  - name: "programs"
+    label: "Programs & Events"
+    folder: "programs"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Program Name", name: "title", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: ["Physical", "Online"] }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+
+  - name: "devotionals"
+    label: "Devotionals"
+    folder: "devotionals"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Audio Link", name: "audio", widget: "string", required: false }
+      - { label: "Video Link", name: "video", widget: "string", required: false }
